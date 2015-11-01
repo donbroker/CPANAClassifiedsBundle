@@ -1,3 +1,15 @@
 cpana_classifieds_homepage:
-    path:     /hello/{name}
+    path:     /classifieds
     defaults: { _controller: CPANAClassifiedsBundle:Default:index }
+
+cpana_classifieds_categories_index:
+    path:     /classifieds/categories
+    defaults: { _controller: CPANAClassifiedsBundle:Categories:index }
+
+cpana_classifieds_countries_index:
+    path:     /classifieds/countries
+    defaults: { _controller: CPANAClassifiedsBundle:Countries:index }
+
+cpana_classifieds_countries_regions:
+    path:     /classifieds/countries/regions
+    defaults: { _controller: CPANAClassifiedsBundle:Countries:regions }

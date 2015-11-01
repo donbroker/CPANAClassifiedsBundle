@@ -1,0 +1,16 @@
+{% extends 'CPANAClassifiedsBundle::layout.html.twig' %}
+
+{% block content %}
+
+<table style="width:100%">
+	{% for country in all_countries %}
+		<tr>
+			<td>{{ country.getCountryCode() }}</td>
+			<td>{{ country.getCountryName() }}</td>
+			<td>{{ country.getIdCountry() }}</td>
+  </tr>
+    {% endfor %}
+</table>
+
+
+{% endblock %}

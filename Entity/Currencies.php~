@@ -1,0 +1,53 @@
+<?php
+
+namespace CPANA\ClassifiedsBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * Currencies
+ *
+ * @ORM\Table(name="currencies")
+ * @ORM\Entity
+ */
+class Currencies
+{
+    /**
+     * @var boolean
+     *
+     * @ORM\Column(name="base_currency", type="boolean", nullable=false)
+     */
+    private $baseCurrency;
+
+    /**
+     * @var float
+     *
+     * @ORM\Column(name="convertion_rate", type="float", precision=10, scale=2, nullable=false)
+     */
+    private $convertionRate;
+
+    /**
+     * @var boolean
+     *
+     * @ORM\Column(name="enabled", type="boolean", nullable=false)
+     */
+    private $enabled;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="currency_name", type="string", length=30, nullable=false)
+     */
+    private $currencyName;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="id_currency", type="integer")
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="IDENTITY")
+     */
+    private $idCurrency;
+
+
+}

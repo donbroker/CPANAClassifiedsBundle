@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping http://doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
+  <entity name="CPANA\ClassifiedsBundle\Entity\Ads" table="ads">
+    <indexes>
+      <index name="fk_id_user" columns="id_user"/>
+      <index name="fk_id_city_area" columns="id_city_area"/>
+      <index name="fk_id_currency" columns="id_currency"/>
+    </indexes>
+    <id name="idAds" type="integer" column="id_ads">
+      <generator strategy="IDENTITY"/>
+    </id>
+    <field name="title" type="string" column="title" length="100" nullable="false"/>
+    <field name="description" type="string" column="description" length="500" nullable="false"/>
+    <field name="price" type="bigint" column="price" nullable="false"/>
+    <field name="email" type="string" column="email" length="255" nullable="false"/>
+    <field name="phoneNumber" type="string" column="phone_number" length="20" nullable="true"/>
+    <field name="pathPhotos" type="string" column="path_photos" length="1024" nullable="true"/>
+    <field name="createdAt" type="datetime" column="created_at" nullable="false"/>
+    <field name="expiresAt" type="datetime" column="expires_at" nullable="false"/>
+    <field name="spam" type="boolean" column="spam" nullable="false"/>
+    <many-to-one field="idUser" target-entity="FosUser">
+      <join-columns>
+        <join-column name="id_user" referenced-column-name="id"/>
+      </join-columns>
+    </many-to-one>
+    <many-to-one field="idCurrency" target-entity="Currencies">
+      <join-columns>
+        <join-column name="id_currency" referenced-column-name="id_currency"/>
+      </join-columns>
+    </many-to-one>
+    <many-to-one field="idCityArea" target-entity="CityAreas">
+      <join-columns>
+        <join-column name="id_city_area" referenced-column-name="id_city_area"/>
+      </join-columns>
+    </many-to-one>
+  </entity>
+</doctrine-mapping>

@@ -1,0 +1,52 @@
+<?php
+
+namespace CPANA\ClassifiedsBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * SpecificItems
+ *
+ * @ORM\Table(name="specific_items", indexes={@ORM\Index(name="fk_id_ads", columns={"id_ads"}), @ORM\Index(name="fk_id_specific_item_types", columns={"id_specific_item_type"})})
+ * @ORM\Entity
+ */
+class SpecificItems
+{
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="item_value", type="string", length=50, nullable=false)
+     */
+    private $itemValue;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="id_specific_item", type="integer")
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="IDENTITY")
+     */
+    private $idSpecificItem;
+
+    /**
+     * @var \CPANA\ClassifiedsBundle\Entity\SpecificItemsTypes
+     *
+     * @ORM\ManyToOne(targetEntity="CPANA\ClassifiedsBundle\Entity\SpecificItemsTypes")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="id_specific_item_type", referencedColumnName="id_specific_item_type")
+     * })
+     */
+    private $idSpecificItemType;
+
+    /**
+     * @var \CPANA\ClassifiedsBundle\Entity\Ads
+     *
+     * @ORM\ManyToOne(targetEntity="CPANA\ClassifiedsBundle\Entity\Ads")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="id_ads", referencedColumnName="id_ads")
+     * })
+     */
+    private $idAds;
+
+
+}

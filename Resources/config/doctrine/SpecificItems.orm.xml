@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping http://doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
+  <entity name="CPANA\ClassifiedsBundle\Entity\SpecificItems" table="specific_items">
+    <indexes>
+      <index name="fk_id_ads" columns="id_ads"/>
+      <index name="fk_id_specific_item_types" columns="id_specific_item_type"/>
+    </indexes>
+    <id name="idSpecificItem" type="integer" column="id_specific_item">
+      <generator strategy="IDENTITY"/>
+    </id>
+    <field name="itemValue" type="string" column="item_value" length="50" nullable="false"/>
+    <many-to-one field="idSpecificItemType" target-entity="SpecificItemsTypes">
+      <join-columns>
+        <join-column name="id_specific_item_type" referenced-column-name="id_specific_item_type"/>
+      </join-columns>
+    </many-to-one>
+    <many-to-one field="idAds" target-entity="Ads">
+      <join-columns>
+        <join-column name="id_ads" referenced-column-name="id_ads"/>
+      </join-columns>
+    </many-to-one>
+  </entity>
+</doctrine-mapping>

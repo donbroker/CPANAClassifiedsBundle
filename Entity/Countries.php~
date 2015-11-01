@@ -1,0 +1,39 @@
+<?php
+
+namespace CPANA\ClassifiedsBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * Countries
+ *
+ * @ORM\Table(name="countries")
+ * @ORM\Entity
+ */
+class Countries
+{
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="country_code", type="string", length=2, nullable=false)
+     */
+    private $countryCode;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="country_name", type="string", length=50, nullable=false)
+     */
+    private $countryName;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="id_country", type="integer")
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="IDENTITY")
+     */
+    private $idCountry;
+
+
+}
