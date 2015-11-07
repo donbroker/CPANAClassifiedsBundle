@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping http://doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
+  <entity name="CPANA\ClassifiedsBundle\Entity\PromotedAdsPayment" table="promoted_ads_payment">
+    <indexes>
+      <index name="fk_id_ads_promo" columns="id_ads"/>
+    </indexes>
+    <id name="idPromotedAdsPayment" type="integer" column="id_promoted_ads_payment">
+      <generator strategy="IDENTITY"/>
+    </id>
+    <field name="paymentCode" type="string" column="payment_code" length="50" nullable="false"/>
+    <field name="paymentDate" type="datetime" column="payment_date" nullable="false"/>
+    <field name="expirationDatePromo" type="datetime" column="expiration_date_promo" nullable="false"/>
+    <many-to-one field="idAds" target-entity="Ads">
+      <join-columns>
+        <join-column name="id_ads" referenced-column-name="id_ads"/>
+      </join-columns>
+    </many-to-one>
+  </entity>
+</doctrine-mapping>

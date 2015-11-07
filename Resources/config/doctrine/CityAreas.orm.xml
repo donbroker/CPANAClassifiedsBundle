@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping http://doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
+  <entity name="CPANA\ClassifiedsBundle\Entity\CityAreas" table="city_areas">
+    <indexes>
+      <index name="fk_id_city" columns="id_city"/>
+    </indexes>
+    <id name="idCityArea" type="integer" column="id_city_area">
+      <generator strategy="IDENTITY"/>
+    </id>
+    <field name="cityAreaName" type="string" column="city_area_name" length="50" nullable="false"/>
+    <many-to-one field="idCity" target-entity="Cities">
+      <join-columns>
+        <join-column name="id_city" referenced-column-name="id_city"/>
+      </join-columns>
+    </many-to-one>
+  </entity>
+</doctrine-mapping>

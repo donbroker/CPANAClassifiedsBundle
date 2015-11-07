@@ -1,0 +1,26 @@
+{% extends 'CPANAClassifiedsBundle::layout.html.twig' %}
+
+{% block content %}
+
+<table style="width:100%">
+
+	{% for ad in all_ads %}
+		<tr><hr></tr>
+		<tr><h1> {{ ad.getTitle() }}</h1></tr>
+		<tr><p><b>Posted by: </b> {{ ad.getIdUser().getName() }}</p></tr>
+		<tr><p><b>Area: </b> {{ ad.getIdCityArea().getCityAreaName() }}</p></tr>
+		<tr><p><b>City: </b> {{ ad.getIdCityArea().getIdCity.getCityName() }}</p></tr>
+		<tr><h2>Description</h2></tr>
+		<tr><p>{{ ad.getDescription() }} </p></tr>
+		<tr>{{ dump(all_items) }}</tr>
+		{% for item in all_items %}
+			{% if item.getIdSpecificItem() == ad.getIdAds() %}
+				<tr><p><b>{{ item.getIdSpecificItemType().getItemTypeName() }} </b> -- {{ item.getItemValue() }} </p></tr>
+				
+			{% endif %}
+		{% endfor %}
+		
+		<tr><p><b>Price: </b> {{ ad.getPrice() }} -- <b> {{ ad.getIdCurrency().getCurrencyName() }} </b> </p></tr>
+    {% endfor %}
+</table>
+{% endblock %}

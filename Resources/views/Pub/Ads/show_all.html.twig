@@ -1,0 +1,29 @@
+{% extends 'CPANAClassifiedsBundle::layout.html.twig' %}
+
+{% block content %}
+
+<table style="width:100%">
+	{% for ad in all_ads %}
+		<tr><hr></tr>
+		<tr><h1> {{ ad['title'] }}</h1></tr>
+		<tr><p><b>Posted by: </b> {{ ad['name'] }}</p></tr>
+		<tr><p><b>Category: </b> {{ ad['categoryName'] }}</p></tr> 
+		<tr><p><b>Area: </b> {{ ad['cityAreaName'] }}</p></tr>
+		<tr><p><b>City: </b> {{ ad['cityName'] }}</p></tr>
+		<tr><h2>Description</h2></tr>
+		<tr><p>{{ ad['description'] }} </p></tr>
+		{% for item in all_items %}
+			{% if item[1] == ad['idAds'] %}
+				<tr><p><b>{{ item['itemTypeName'] }} </b> -- {{ item['itemValue'] }} </p></tr>
+				
+			{% endif %}
+		{% endfor %}
+		
+		<tr><p><b>Price: </b> {{ ad['price'] }} -- <b> {{ ad['currencyName'] }} </b> </p></tr>
+    {% endfor %}
+	
+	
+
+</table>
+
+{% endblock %}

@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping http://doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
+  <entity name="CPANA\ClassifiedsBundle\Entity\SpecificItemsTypes" table="specific_items_types">
+    <id name="idSpecificItemType" type="integer" column="id_specific_item_type">
+      <generator strategy="IDENTITY"/>
+    </id>
+    <field name="itemTypeName" type="string" column="item_type_name" length="50" nullable="true"/>
+  </entity>
+</doctrine-mapping>

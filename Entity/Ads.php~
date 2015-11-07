@@ -1,0 +1,128 @@
+<?php
+
+namespace CPANA\ClassifiedsBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * Ads
+ *
+ * @ORM\Table(name="ads", indexes={@ORM\Index(name="fk_id_user", columns={"id_user"}), @ORM\Index(name="fk_id_city_area", columns={"id_city_area"}), @ORM\Index(name="fk_id_currency", columns={"id_currency"}), @ORM\Index(name="fk_id_categories", columns={"id_category"})})
+ * @ORM\Entity
+ */
+class Ads
+{
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="title", type="string", length=100, nullable=false)
+     */
+    private $title;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="description", type="string", length=500, nullable=false)
+     */
+    private $description;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="price", type="bigint", nullable=false)
+     */
+    private $price;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="email", type="string", length=255, nullable=false)
+     */
+    private $email;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="phone_number", type="string", length=20, nullable=true)
+     */
+    private $phoneNumber;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="path_photos", type="string", length=1024, nullable=true)
+     */
+    private $pathPhotos;
+
+    /**
+     * @var \DateTime
+     *
+     * @ORM\Column(name="created_at", type="datetime", nullable=false)
+     */
+    private $createdAt;
+
+    /**
+     * @var \DateTime
+     *
+     * @ORM\Column(name="expires_at", type="datetime", nullable=false)
+     */
+    private $expiresAt;
+
+    /**
+     * @var boolean
+     *
+     * @ORM\Column(name="spam", type="boolean", nullable=false)
+     */
+    private $spam;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="id_ads", type="integer")
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="IDENTITY")
+     */
+    private $idAds;
+
+    /**
+     * @var \CPANA\ClassifiedsBundle\Entity\FosUser
+     *
+     * @ORM\ManyToOne(targetEntity="CPANA\ClassifiedsBundle\Entity\FosUser")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="id_user", referencedColumnName="id")
+     * })
+     */
+    private $idUser;
+
+    /**
+     * @var \CPANA\ClassifiedsBundle\Entity\Currencies
+     *
+     * @ORM\ManyToOne(targetEntity="CPANA\ClassifiedsBundle\Entity\Currencies")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="id_currency", referencedColumnName="id_currency")
+     * })
+     */
+    private $idCurrency;
+
+    /**
+     * @var \CPANA\ClassifiedsBundle\Entity\CityAreas
+     *
+     * @ORM\ManyToOne(targetEntity="CPANA\ClassifiedsBundle\Entity\CityAreas")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="id_city_area", referencedColumnName="id_city_area")
+     * })
+     */
+    private $idCityArea;
+
+    /**
+     * @var \CPANA\ClassifiedsBundle\Entity\Category
+     *
+     * @ORM\ManyToOne(targetEntity="CPANA\ClassifiedsBundle\Entity\Category")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="id_category", referencedColumnName="id_category")
+     * })
+     */
+    private $idCategory;
+
+
+}

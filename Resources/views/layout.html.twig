@@ -1,0 +1,22 @@
+{% extends '::base.html.twig' %}
+
+{% block body %}
+	<div class="row">
+					
+		<div class="col-md-6 widget">
+			<div class="widget-body">
+				<p class="simplenav">
+					<a href="/classifieds">Home</a> | 
+					<a href="{{ path('cpana_classifieds_categories_index') }}">Categories</a> |
+					<a href="{{ path('cpana_classifieds_countries_index') }}">All countries</a> |
+					<a href="{{ path('cpana_classifieds_countries_regions') }}">Regions</a> |
+					<a href="{{ path('cpana_classifieds_public_ads_show_all') }}">Show all ads</a>
+				</p>
+			</div>
+		</div>
+	</div>
+	
+{% block content %}{% endblock %}
+
+{% endblock %}
+

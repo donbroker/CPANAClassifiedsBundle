@@ -1,0 +1,14 @@
+{% extends 'CPANAClassifiedsBundle::layout.html.twig' %}
+
+{% block content %}
+<table style="width:100%">
+	{% for category in all_cat %}
+		<tr>
+			<td>{{ category.getIdCategory() }}</td>
+			<td>{{ category.getCategoryName() }}</td>
+			<td>{{ category.getIdParent() }}</td>
+  </tr>
+    {% endfor %}
+</table>
+
+{% endblock %}
