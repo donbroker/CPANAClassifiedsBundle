@@ -33,7 +33,7 @@ class Category
      *
      * @ORM\ManyToOne(targetEntity="CPANA\ClassifiedsBundle\Entity\Category")
      * @ORM\JoinColumns({
-     *   @ORM\JoinColumn(name="id_parent", referencedColumnName="id_category", nullable=true)
+     *   @ORM\JoinColumn(name="id_parent", referencedColumnName="id_category")
      * })
      */
     private $idParent;

@@ -13,3 +13,12 @@ cpana_classifieds_countries_index:
 cpana_classifieds_countries_regions:
     path:     /classifieds/countries/regions
     defaults: { _controller: CPANAClassifiedsBundle:Countries:regions }
+
+cpana_classifieds_public_ads_show_all:
+    path:     /classifieds/ads/showall
+    defaults: { _controller: CPANAClassifiedsBundle:Pub\Ads:showAll }
+
+
+cpana_classifieds_admin_category_index:
+    path:     /admin/classifieds/category
+    defaults: { _controller: CPANAClassifiedsBundle:Admin\Category:index }

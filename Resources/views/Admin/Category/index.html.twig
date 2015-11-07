@@ -1,0 +1,21 @@
+{% extends 'CPANAClassifiedsBundle::layout.html.twig' %}
+
+{% block content %}
+
+bun venit admin....
+
+<table style="width:100%">
+	{% for category in all_cat %}
+		<tr>
+			<td>{{ category.getIdCategory() }}</td>
+			<td>{{ category.getCategoryName() }}</td>
+			{% if category.getIdParent() != false %}
+				<td>{{ category.getIdParent().getCategoryName() }}</td>
+			{% else %}
+				<td>root category</td>
+			{% endif %}
+			
+  </tr>
+    {% endfor %}
+</table>
+{% endblock %}

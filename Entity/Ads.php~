@@ -7,7 +7,7 @@ use Doctrine\ORM\Mapping as ORM;
 /**
  * Ads
  *
- * @ORM\Table(name="ads", indexes={@ORM\Index(name="fk_id_user", columns={"id_user"}), @ORM\Index(name="fk_id_city_area", columns={"id_city_area"}), @ORM\Index(name="fk_id_currency", columns={"id_currency"})})
+ * @ORM\Table(name="ads", indexes={@ORM\Index(name="fk_id_user", columns={"id_user"}), @ORM\Index(name="fk_id_city_area", columns={"id_city_area"}), @ORM\Index(name="fk_id_currency", columns={"id_currency"}), @ORM\Index(name="fk_id_categories", columns={"id_category"})})
  * @ORM\Entity
  */
 class Ads
@@ -113,6 +113,16 @@ class Ads
      * })
      */
     private $idCityArea;
+
+    /**
+     * @var \CPANA\ClassifiedsBundle\Entity\Category
+     *
+     * @ORM\ManyToOne(targetEntity="CPANA\ClassifiedsBundle\Entity\Category")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="id_category", referencedColumnName="id_category")
+     * })
+     */
+    private $idCategory;
 
 
 }

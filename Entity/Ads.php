@@ -7,8 +7,8 @@ use Doctrine\ORM\Mapping as ORM;
 /**
  * Ads
  *
- * @ORM\Table(name="ads", indexes={@ORM\Index(name="fk_id_user", columns={"id_user"}), @ORM\Index(name="fk_id_city_area", columns={"id_city_area"}), @ORM\Index(name="fk_id_currency", columns={"id_currency"})})
- * @ORM\Entity
+ * @ORM\Table(name="ads", indexes={@ORM\Index(name="fk_id_user", columns={"id_user"}), @ORM\Index(name="fk_id_city_area", columns={"id_city_area"}), @ORM\Index(name="fk_id_currency", columns={"id_currency"}), @ORM\Index(name="fk_id_categories", columns={"id_category"})})
+ * @ORM\Entity(repositoryClass="CPANA\ClassifiedsBundle\Entity\Repository\AdsRepository")
  */
 class Ads
 {
@@ -85,9 +85,9 @@ class Ads
     private $idAds;
 
     /**
-     * @var \CPANA\ClassifiedsBundle\Entity\FosUser
+     * @var \AppBundle\Entity\User
      *
-     * @ORM\ManyToOne(targetEntity="CPANA\ClassifiedsBundle\Entity\FosUser")
+     * @ORM\ManyToOne(targetEntity="AppBundle\Entity\User")
      * @ORM\JoinColumns({
      *   @ORM\JoinColumn(name="id_user", referencedColumnName="id")
      * })
@@ -113,6 +113,16 @@ class Ads
      * })
      */
     private $idCityArea;
+
+    /**
+     * @var \CPANA\ClassifiedsBundle\Entity\Category
+     *
+     * @ORM\ManyToOne(targetEntity="CPANA\ClassifiedsBundle\Entity\Category")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="id_category", referencedColumnName="id_category")
+     * })
+     */
+    private $idCategory;
 
 
 
@@ -339,7 +349,7 @@ class Ads
      * @param \CPANA\ClassifiedsBundle\Entity\FosUser $idUser
      * @return Ads
      */
-    public function setIdUser(\CPANA\ClassifiedsBundle\Entity\FosUser $idUser = null)
+    public function setIdUser(\AppBundle\Entity\User $idUser = null)
     {
         $this->idUser = $idUser;
 
@@ -349,7 +359,7 @@ class Ads
     /**
      * Get idUser
      *
-     * @return \CPANA\ClassifiedsBundle\Entity\FosUser 
+     * @return \AppBundle\Entity\User 
      */
     public function getIdUser()
     {
@@ -400,5 +410,28 @@ class Ads
     public function getIdCityArea()
     {
         return $this->idCityArea;
+    }
+
+    /**
+     * Set idCategory
+     *
+     * @param \CPANA\ClassifiedsBundle\Entity\Category $idCategory
+     * @return Ads
+     */
+    public function setIdCategory(\CPANA\ClassifiedsBundle\Entity\Category $idCategory = null)
+    {
+        $this->idCategory = $idCategory;
+
+        return $this;
+    }
+
+    /**
+     * Get idCategory
+     *
+     * @return \CPANA\ClassifiedsBundle\Entity\Category 
+     */
+    public function getIdCategory()
+    {
+        return $this->idCategory;
     }
 }

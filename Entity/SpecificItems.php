@@ -8,7 +8,7 @@ use Doctrine\ORM\Mapping as ORM;
  * SpecificItems
  *
  * @ORM\Table(name="specific_items", indexes={@ORM\Index(name="fk_id_ads", columns={"id_ads"}), @ORM\Index(name="fk_id_specific_item_types", columns={"id_specific_item_type"})})
- * @ORM\Entity
+ * @ORM\Entity(repositoryClass="CPANA\ClassifiedsBundle\Entity\Repository\SpecificItemsRepository")
  */
 class SpecificItems
 {
